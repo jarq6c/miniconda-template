@@ -5,15 +5,11 @@ HASHFILE=sha256sum.txt
 PYENV=miniconda3
 PYTHON=$(PYENV)/bin/python3
 
-.PHONY: build checksum clean
+.PHONY: checksum clean
 
-build: $(PYENV)/bin/activate
-	$(PYTHON) -m build
-
-$(PYENV)/bin/activate: checksum requirements.txt
+$(PYENV)/bin/activate: checksum
 	test -d $(PYENV) || bash ./$(INSTALLER) -b -p $(PYENV)
-	$(PYTHON) -m pip install -U pip wheel setuptools build pytest
-	$(PYTHON) -m pip install -r requirements.txt
+	$(PYTHON) -m pip install -U pip wheel
 	touch $(PYENV)/bin/activate
 
 checksum: $(INSTALLER) $(HASHFILE)
@@ -26,4 +22,4 @@ $(HASHFILE):
 	echo "$(HASH) $(INSTALLER)" > $(HASHFILE)
 
 clean:
-	rm -rf dist/ $(PYENV) $(HASHFILE) $(INSTALLER)
+	rm -rf $(PYENV) $(HASHFILE) $(INSTALLER)

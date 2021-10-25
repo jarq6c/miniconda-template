@@ -7,7 +7,7 @@ This template can be used as a starting point for building distributable Minicon
 ```bash
 $ make
 ```
-Running `make` in this directory will retrieve and build the default environment specified in the Makefile. The chain of dependencies for the default target includes targets that retrieve a miniconda installation script for Linux and creates a stand-alone miniconda environment with the required dependencies. The name of the miniconda environment is `miniconda3` and can be activated as normal using `source miniconda3/bin/activate` and deactivated using `conda deactivate`. The default target includes an instruction to upgrade the `pip` and `wheel` packages.
+Running `make` in this directory will retrieve and build the default environment specified in the Makefile. The chain of dependencies for the default target includes targets that retrieve a miniconda installation script for Linux and creates a stand-alone miniconda environment with the required dependencies. The name of the miniconda environment is `miniconda3` and can be activated as normal using `source miniconda3/bin/activate` and deactivated using `conda deactivate`. The default target includes an instruction to upgrade `conda`, and install `pip` and `wheel`.
 
 To start from scratch run clean:
 ```bash

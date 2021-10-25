@@ -1,15 +1,16 @@
 REPOSITORY=https://repo.anaconda.com/miniconda
-INSTALLER=Miniconda3-py38_4.9.2-Linux-x86_64.sh
-HASH=1314b90489f154602fd794accfc90446111514a5a72fe1f71ab83e07de9504a7
+INSTALLER=Miniconda3-py38_4.10.3-Linux-x86_64.sh
+HASH=935d72deb16e42739d69644977290395561b7a6db059b316958d97939e9bdf3d
 HASHFILE=sha256sum.txt
 PYENV=miniconda3
-PYTHON=$(PYENV)/bin/python3
+CONDA=$(PYENV)/bin/conda
 
 .PHONY: checksum clean
 
 $(PYENV)/bin/activate: checksum
 	test -d $(PYENV) || bash ./$(INSTALLER) -b -p $(PYENV)
-	$(PYTHON) -m pip install -U pip wheel
+	$(CONDA) update conda -y
+	$(CONDA) install pip wheel -y
 	touch $(PYENV)/bin/activate
 
 checksum: $(INSTALLER) $(HASHFILE)

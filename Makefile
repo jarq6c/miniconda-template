@@ -1,6 +1,6 @@
 REPOSITORY=https://repo.anaconda.com/miniconda
-INSTALLER=Miniconda3-py312_24.3.0-0-Linux-x86_64.sh
-HASH=96a44849ff17e960eeb8877ecd9055246381c4d4f2d031263b63fa7e2e930af1
+INSTALLER=Miniconda3-py313_25.7.0-2-Linux-x86_64.sh
+HASH=dda3629462ba1cfa72eb74535214c2e315c77f1cfb0f02046537e99f1bf64abc
 HASHFILE=sha256sum.txt
 PYENV=miniconda3
 CONDA=$(PYENV)/bin/conda

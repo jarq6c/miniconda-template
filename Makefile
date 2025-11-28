@@ -9,6 +9,8 @@ CONDA=$(PYENV)/bin/conda
 
 $(PYENV)/bin/activate: checksum
 	test -d $(PYENV) || bash ./$(INSTALLER) -b -p $(PYENV)
+	$(CONDA) tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+	$(CONDA) tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 	$(CONDA) update conda -y
 	$(CONDA) install pip wheel -y
 	touch $(PYENV)/bin/activate
